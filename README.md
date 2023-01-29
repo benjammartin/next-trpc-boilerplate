@@ -4,7 +4,7 @@ A boilerplate project that uses Next.JS as the front-end framework and tRPC.js a
 
 ## Getting Started
 
-1.  Clone the repository: `git clone https://github.com/<repo-url>`
+1.  Clone the repository: `git clone git@github.com:benjammartin/next-trpc-boilerplate.git`
 2.  Install dependencies: `npm install` or `yarn install`
 3.  Start development server: `npm run dev` or `yarn dev`
 4.  Open `http://localhost:3000` in your browser
