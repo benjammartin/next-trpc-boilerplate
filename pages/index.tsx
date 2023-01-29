@@ -10,8 +10,10 @@ export default function Home() {
   const [isLoading, setLoading] = useState<boolean>(true);
 
   const onSubmit = useCallback(async () => {
+    setLoading(true);
     const response = await request<APIResponse>(REQUEST_URL);
     setResponse(response?.data);
+    setLoading(false);
   }, []);
 
   useEffect(() => {
@@ -21,14 +23,15 @@ export default function Home() {
     });
   }, []);
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <Fragment>
-      <button onClick={onSubmit}>Demo</button>
+      <button disabled={isLoading} onClick={onSubmit}>
+        Demo
+      </button>
+      <h2>With hook</h2>
       <div>{JSON.stringify(response, null, 16)}</div>
+      <h2>With tRPC</h2>
+      <div>{JSON.stringify(example, null, 16)}</div>
     </Fragment>
   );
 }
